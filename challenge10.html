@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Guess the Number Game</title>
+        <style>
+            body {
+                background-color: #222;
+                color: #fff;
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+
+            .number {
+                width: 15rem;
+                height: 15rem;
+                font-size: 6rem;
+                font-weight: bold;
+                text-align: center;
+                line-height: 15rem;
+                border-radius: 50%;
+                background-color: #eee;
+                color: #333;
+            }
+
+            .guess {
+                width: 10rem;
+                padding: 1rem;
+                font-size: 1.5rem;
+            }
+
+            .check {
+                background-color: #4caf50;
+                color: #fff;
+                padding: 1rem 2rem;
+                border: none;
+                cursor: pointer;
+            }
+
+            .again {
+                background-color: #f44336;
+                color: #fff;
+                padding: 1rem 2rem;
+                border: none;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Guess the Number</h1>
+        <p>Between 1 and 20</p>
+        <div class="number">?</div>
+        <input type="number" class="guess" />
+        <button class="check">Check!</button>
+        <button class="again">Again!</button>
+        <p class="message">Start guessing...</p>
+        <p class="score">Score: 20</p>
+
+        <script src="challenge10.js"></script>
+    </body>
+</html>
