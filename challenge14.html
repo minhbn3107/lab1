@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>camelCase Converter</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 50px;
+            }
+            textarea {
+                width: 300px;
+                height: 150px;
+                margin-bottom: 20px;
+                padding: 10px;
+                font-size: 16px;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            .output {
+                margin-top: 20px;
+                white-space: pre-wrap; /* Keeps the formatting with line breaks */
+                font-family: monospace; /* Monospace font for better alignment */
+            }
+        </style>
+    </head>
+    <body>
+        <textarea
+            placeholder="Enter your underscore_case variables here..."
+        ></textarea>
+        <br />
+        <button>Convert to camelCase</button>
+        <div class="output"></div>
+        <!-- This is where the output will be displayed -->
+
+        <script>
+            const button = document.querySelector("button");
+            const outputDiv = document.querySelector(".output");
+
+            button.addEventListener("click", () => {
+                // Clear previous output
+                outputDiv.textContent = "";
+
+                // Get the input from the textarea
+                const text = document.querySelector("textarea").value;
+                const lines = text.split("\n"); // Split by new line character
+
+                // Loop over each line, convert to camelCase and display in the output div
+                lines.forEach((line, index) => {
+                    const [first, second] = line
+                        .trim()
+                        .toLowerCase()
+                        .split("_");
+                    const camelCase =
+                        first +
+                        (second
+                            ? second[0].toUpperCase() + second.slice(1)
+                            : "");
+
+                    // Add check marks based on line number
+                    const checkMarks = "✅".repeat(index + 1);
+
+                    // Display the camelCase variable name with check marks in the output div
+                    outputDiv.textContent += `${camelCase.padEnd(
+                        20
+                    )}${checkMarks}\n`;
+                });
+            });
+        </script>
+    </body>
+</html>
